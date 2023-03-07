@@ -24,7 +24,20 @@ def find_mismatch(text):
 
 
 def main():
-    text = input()
+    usersChoice = input().lower()
+    if usersChoice == 'i':
+        text = input()
+    elif usersChoice == 'f':
+        fname = input()
+
+        try:
+            with open(fname, 'r') as f:
+                text = f.readline().strip()
+        except Exception:
+            return
+    else:
+        return
+
     result = find_mismatch(text)
     print(result)
 
